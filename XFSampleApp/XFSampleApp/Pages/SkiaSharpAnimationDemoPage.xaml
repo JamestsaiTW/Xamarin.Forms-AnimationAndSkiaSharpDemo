@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XFSampleApp.Pages.SkiaSharpAnimationDemoPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:skiasharpviewsforms="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+    xmlns:viewmodels="clr-namespace:XFSampleApp.ViewModels"
+    mc:Ignorable="d">
+    <ContentPage.BindingContext>
+        <viewmodels:SkiaSharpDemoPageViewModel DisplayButtonText="Start" />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Grid.Row="1" HorizontalTextAlignment="Center" Text="{Binding Source={x:Reference MySlider}, Path=Value, StringFormat='Cycle time = {0:F1} seconds'}" />
+            <Slider
+                x:Name="MySlider"
+                Grid.Row="0"
+                Margin="20,0"
+                Maximum="10"
+                Minimum="0.1"
+                Value="5" />
+            <skiasharpviewsforms:SKCanvasView
+                x:Name="DrawSKCanvasView"
+                BackgroundColor="Azure"
+                HorizontalOptions="FillAndExpand"
+                PaintSurface="DrawSKCanvasView_PaintSurface"
+                VerticalOptions="FillAndExpand" />
+            <Button Clicked="Button_Clicked" Text="{Binding DisplayButtonText}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

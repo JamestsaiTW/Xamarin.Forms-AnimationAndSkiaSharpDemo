@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XFSampleApp.Pages.XFAnimationDemoPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="clr-namespace:XFSampleApp.ViewModels"
+    mc:Ignorable="d">
+    <ContentPage.BindingContext>
+        <viewmodels:XFAnimationDemoPageViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Image
+                x:Name="xFAnimationImage"
+                Grid.Column="1"
+                HorizontalOptions="CenterAndExpand"
+                Source="Display.png"
+                VerticalOptions="CenterAndExpand" />
+            <Button
+                Grid.Row="1"
+                Grid.ColumnSpan="3"
+                Clicked="StartAnimationButton_Clicked"
+                IsEnabled="{Binding IsAnimating, Converter={StaticResource MyReverseBool}}"
+                Text="Start Animation"
+                VerticalOptions="End" />
+            <Button
+                Grid.Row="2"
+                Grid.ColumnSpan="3"
+                Clicked="StartConcurrentAnimationButton_Clicked"
+                IsEnabled="{Binding IsAnimating, Converter={StaticResource MyReverseBool}}"
+                Text="Start Concurrent Animation"
+                VerticalOptions="End" />
+            <Button
+                Grid.Row="3"
+                Grid.ColumnSpan="3"
+                Clicked="CancelAnimationButton_Clicked"
+                IsEnabled="{Binding IsAnimating}"
+                Text="Cancel Animation" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -3,3 +3,7 @@
 ################################################################################
 
 /.vs
+/XFSampleApp/XFSampleApp/obj
+/XFSampleApp/XFSampleApp.Android/obj
+/XFSampleApp/XFSampleApp.iOS/obj/iPhoneSimulator/Debug
+*.user

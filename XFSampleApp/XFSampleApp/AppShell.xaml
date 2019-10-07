@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="XFSampleApp.AppShell"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:XFSampleApp.Pages"
+    xmlns:utilities="clr-namespace:XFSampleApp.Utilities"
+    Title="XFSampleApp"
+    mc:Ignorable="d">
+    <TabBar>
+        <pages:XFAnimationDemoPage Title="XF's Animation Demo" IconImageSource="Animation.png" />
+        <Tab Title="SkiaSharp Demo" Icon="SkiaSharp.png">
+            <ShellContent Title="Draw Line">
+                <pages:SkiaSharpDrawDemoPage Title="SkiaSharp Draw Demo">
+                    <x:Arguments>
+                        <utilities:DrawType>Line</utilities:DrawType>
+                    </x:Arguments>
+                </pages:SkiaSharpDrawDemoPage>
+            </ShellContent>
+            <ShellContent Title="Draw Circle">
+                <pages:SkiaSharpDrawDemoPage Title="SkiaSharp Draw Demo">
+                    <x:Arguments>
+                        <utilities:DrawType>Circle</utilities:DrawType>
+                    </x:Arguments>
+                </pages:SkiaSharpDrawDemoPage>
+            </ShellContent>
+            <ShellContent Title="MeasureText">
+                <pages:SkiaSharpDrawDemoPage Title="SkiaSharp Draw Demo">
+                    <x:Arguments>
+                        <utilities:DrawType>MeasureText</utilities:DrawType>
+                    </x:Arguments>
+                </pages:SkiaSharpDrawDemoPage>
+            </ShellContent>
+            <ShellContent Title="Circle Animation">
+                <pages:SkiaSharpAnimationDemoPage Title="SkiaSharp Animation Demo" />
+            </ShellContent>
+        </Tab>
+    </TabBar>
+</Shell>
